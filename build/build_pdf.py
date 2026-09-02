@@ -42,6 +42,13 @@ from reportlab.graphics import renderPDF
 from reportlab.platypus.flowables import Flowable
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from diagrams import (  # noqa: E402
+    three_sovereignties,
+    team_triangle,
+    wall_diagram,
+    surfaces_flow,
+    repo_scope,
+)
 from content import (  # noqa: E402
     TITLE,
     TAGLINE,
@@ -107,6 +114,27 @@ class SVGImage(Flowable):
         drawing.width = self.width
         drawing.height = self.height
         renderPDF.draw(drawing, self.canv, 0, 0)
+
+
+class DiagramFlowable(Flowable):
+    """Flowable that scales a reportlab.graphics Drawing to a target width.
+    Aspect ratio preserved."""
+
+    def __init__(self, drawing, target_width: float):
+        super().__init__()
+        self._raw = drawing
+        self._raw_w = drawing.width
+        self._raw_h = drawing.height
+        self._scale = target_width / drawing.width
+        self.width = target_width
+        self.height = drawing.height * self._scale
+
+    def draw(self):
+        d = self._raw
+        d.scale(self._scale, self._scale)
+        d.width = self.width
+        d.height = self.height
+        renderPDF.draw(d, self.canv, 0, 0)
 
 # Phone-first page: narrow enough that fit-to-width on a 390px phone
 # renders body text around 14-16pt effective size. 100mm x 178mm is a
@@ -333,9 +361,23 @@ def _link(text: str, url: str) -> str:
     return f'<a href="{url}" color="#e87722"><u>{text}</u></a>'
 
 
-def _build_story(phone: bool):
+def _build_story(phone: bool, content_width: float | None = None):
     S = _styles(phone=phone)
     story = []
+
+    def diagram(fn, caption: str | None = None, target_w: float | None = None):
+        """Insert a scaled diagram plus optional caption. Desktop-only —
+        phone stays text-only."""
+        if phone or content_width is None:
+            return
+        w = target_w if target_w is not None else content_width
+        drawing = fn()
+        story.append(Spacer(1, 6))
+        story.append(DiagramFlowable(drawing, w))
+        if caption:
+            story.append(Spacer(1, 2))
+            story.append(Paragraph(caption, S["ref"]))
+        story.append(Spacer(1, 8))
 
     # Header block
     story.append(Paragraph("EVEglyphDesign · PMO offering", S["eyebrow"]))
@@ -347,10 +389,21 @@ def _build_story(phone: bool):
     # Lede
     story.append(Paragraph(LEDE, S["lede"]))
 
+    # Sovereignty definitional slide — opens the argument.
+    diagram(three_sovereignties,
+            caption="Data quality starts with sovereignty scoping. "
+                    "Structured-data checks are the symptom, not the fix.")
+
     # Section: What you get
     story.append(Paragraph("What you get", S["h2"]))
     story.append(Paragraph(
         "Four things, delivered by the team, kept by you.", S["body"]))
+
+    # Surfaces flow diagram at the top of "What you get".
+    diagram(surfaces_flow,
+            caption="Four surfaces, one repository. "
+                    "Everything the team produces lands in the client’s "
+                    "Client Sovereign repo.")
 
     for s in SURFACES:
         # No KeepTogether on phone: reference and body should flow with the
@@ -370,6 +423,12 @@ def _build_story(phone: bool):
     for p in TEAM_PARAS:
         story.append(Paragraph(p, S["body"]))
 
+    # Team triangle: Lilian at the apex, four consultants + their
+    # individual sovereign twins below.
+    diagram(team_triangle,
+            caption="Lilian keeps the programme moving. "
+                    "Each consultant runs their own Individual Sovereign twin.")
+
     # Callout
     callout_text = f'<b><font color="#e87722">{CALLOUT_KICKER}</font></b> {CALLOUT}'
     callout_para = Paragraph(callout_text, S["callout"])
@@ -388,6 +447,26 @@ def _build_story(phone: bool):
     story.append(Spacer(1, 4))
     story.append(callout_tbl)
     story.append(Spacer(1, 8))
+
+    # DMZ vs rented model — sits right after the trade-secret callout.
+    diagram(wall_diagram,
+            caption="Reasoning built inside your DMZ stays yours. "
+                    "Reasoning built on a vendor’s cloud accumulates on "
+                    "their side of the wall.")
+
+    # DMZ-bound repo scope — what the twin sees inside the wall.
+    story.append(Paragraph("Inside the boundary, what the twin sees",
+                           S["h3"]))
+    story.append(Paragraph(
+        "The context reasoning repository is the twin’s working memory: "
+        "the unstructured and semi-structured project record on one side, "
+        "and read-only connectivity to your Client Sovereign data estate "
+        "on the other. Planning and execution assumptions are reasoned "
+        "against the actual business data — something no company should "
+        "ever want done outside their DMZ.",
+        S["body"]))
+    diagram(repo_scope,
+            caption="Nothing on this page ever leaves the DMZ. That is the point.")
 
     # Comparison section
     story.append(Paragraph(COMPARE_HEADING, S["h2"]))
@@ -525,7 +604,8 @@ def _build_pdf(out_path: Path, phone: bool, total_pages: int | None,
     doc.addPageTemplates([
         PageTemplate(id="main", frames=[frame], onPage=_on_page),
     ])
-    story = _build_story(phone=phone)
+    content_width = pagesize[0] - left - right
+    story = _build_story(phone=phone, content_width=content_width)
     doc.build(story)
 
     data = out_path.read_bytes()
