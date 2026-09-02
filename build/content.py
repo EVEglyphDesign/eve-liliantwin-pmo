@@ -6,7 +6,7 @@ Register: Andy's brief — one idea per sentence, buyer nouns, active verbs.
 
 TITLE = "Universal DI Framework PMO Model"
 TAGLINE = "The PMO that runs inside your systems."
-LEAD = ("Lilian Nadeau — Practice Lead, Universal DI Framework PMO · "
+LEAD = ("Lilian Corvington — Practice Lead, Universal DI Framework PMO · "
         "EVEglyphDesign")
 VERSION = "v1.0 — 2026"
 
