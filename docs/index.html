@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Universal DI Framework PMO Model · EVEglyphDesign</title>
+<meta name="description" content="A management consulting PMO team that runs your SAP transformation inside your own systems, and leaves you every reasoning artifact as your trade secret. IKEA and Vodafone-scale delivery, on your side of the wall.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdfaf4;
+    --cream2: #f7f2e7;
+    --ink: #1a1a1a;
+    --line: #e7e1d3;
+    --mute: #6b665c;
+    --orange: #e87722;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--cream); color: var(--ink); }
+  body { font-family: 'Inter', system-ui, sans-serif; font-size: 17px; line-height: 1.55; }
+  a { color: var(--orange); text-decoration: none; border-bottom: 1px solid rgba(232,119,34,0.35); }
+  a:hover { border-bottom-color: var(--orange); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 64px 28px 96px; }
+  header .eyebrow { font-size: 12px; font-weight: 600; color: var(--orange); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 42px; line-height: 1.08; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .subtitle { font-family: 'Fraunces', Georgia, serif; font-size: 22px; color: var(--mute); margin: 0 0 24px; line-height: 1.35; }
+  .byline { font-size: 14px; color: var(--mute); margin-bottom: 40px; }
+  h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 28px; margin: 48px 0 12px; letter-spacing: -0.005em; }
+  h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 20px; margin: 26px 0 8px; }
+  p { margin: 0 0 14px; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+  ul { padding-left: 1.2em; margin: 0 0 14px; }
+  li { margin-bottom: 8px; }
+  .lede { font-size: 20px; line-height: 1.5; color: var(--ink); margin: 0 0 32px; font-family: 'Fraunces', Georgia, serif; font-weight: 400; }
+  .surface {
+    border-top: 1px solid var(--line);
+    padding: 22px 0 6px;
+  }
+  .surface h3 { margin-top: 0; }
+  .surface .ref { font-size: 13px; color: var(--mute); font-style: italic; margin-top: -4px; margin-bottom: 12px; }
+  .surface .ref strong { color: var(--orange); font-style: normal; font-weight: 600; }
+  .compare {
+    margin: 24px 0;
+    border: 1px solid var(--line);
+    background: var(--cream);
+  }
+  .compare .head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--cream2);
+    border-bottom: 1px solid var(--line);
+  }
+  .compare .head > div {
+    padding: 16px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .compare .head > div:first-child { border-right: 1px solid var(--line); color: var(--orange); }
+  .compare .head img { height: 18px; width: auto; display: block; }
+  .compare .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare .row:last-child { border-bottom: 0; }
+  .compare .row > div {
+    padding: 16px 18px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .compare .row > div:first-child { border-right: 1px solid var(--line); background: rgba(232,119,34,0.03); }
+  .compare .rowlabel {
+    padding: 12px 18px !important;
+    grid-column: 1 / -1;
+    background: var(--cream2);
+    font-size: 11px !important;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--line);
+  }
+  .cta {
+    background: var(--cream2);
+    border: 1px solid var(--line);
+    padding: 28px 30px;
+    margin: 48px 0 12px;
+    display: grid;
+    gap: 14px;
+  }
+  .cta .row { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+  .cta .label { font-weight: 600; color: var(--ink); font-size: 17px; }
+  .cta .meta { color: var(--mute); font-size: 14px; }
+  .pill {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--cream);
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 0;
+    letter-spacing: 0.01em;
+  }
+  .pill:hover { border: 0; color: var(--cream); }
+  .callout {
+    background: var(--cream2);
+    border-left: 3px solid var(--orange);
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .callout strong { color: var(--orange); }
+  footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--mute); font-size: 13px; }
+  footer .mark { font-family: 'Fraunces', Georgia, serif; color: var(--orange); margin-top: 8px; display: block; }
+  @media (max-width: 640px) {
+    .wrap { padding: 44px 20px 72px; }
+    h1 { font-size: 32px; }
+    .subtitle { font-size: 18px; }
+    h2 { font-size: 24px; }
+    .lede { font-size: 18px; }
+    .compare .row { grid-template-columns: 1fr; }
+    .compare .row > div:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
+    .compare .head { grid-template-columns: 1fr; }
+    .compare .head > div:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">EVEglyphDesign · PMO offering</div>
+    <h1>Universal DI Framework PMO Model</h1>
+    <p class="subtitle">The PMO that runs inside your systems.</p>
+    <div class="byline">A management consulting team, built around client-owned reasoning · 2026</div>
+  </header>
+
+  <p class="lede">A management consulting PMO team that runs your SAP transformation inside your own systems. Every document, every decision, every reasoning step lands in your private repository as your trade secret from day one — and stays there when we go.</p>
+
+  <div class="cta">
+    <div class="row">
+      <div>
+        <div class="label">One-page brief for your team</div>
+        <div class="meta">Controlled PDF · LETTER · EgD-KEY-2026-07 · SHA-256 stamped</div>
+      </div>
+      <a class="pill" href="EVEglyphDesign_Universal_DI_PMO.pdf">Open desktop PDF</a>
+    </div>
+    <div class="row">
+      <div>
+        <div class="label">Phone-friendly PDF</div>
+        <div class="meta">Narrow page, large type, read on a mobile browser</div>
+      </div>
+      <a class="pill" href="EVEglyphDesign_Universal_DI_PMO_phone.pdf">Open phone PDF</a>
+    </div>
+    <div class="row">
+      <div>
+        <div class="label">Talk to us</div>
+        <div class="meta">WhatsApp, direct line</div>
+      </div>
+      <a class="pill" href="https://wa.me/15062921452">Message on WhatsApp</a>
+    </div>
+  </div>
+
+  <h2>What you get</h2>
+  <p>Four things, delivered by the team, kept by you.</p>
+
+  <div class="surface">
+    <h3>Documents</h3>
+    <p class="ref"><strong>Reference:</strong> a global retailer's country-by-country SAP programme, where every proposal, blueprint, and specification was drafted in the client's own environment and versioned on the client's own systems.</p>
+    <p>Proposals, blueprints, functional and technical specs, meeting minutes. Drafted from your workshop notes, priced from your scope, versioned every time you change them. Every document says who wrote it, what it was built from, and when.</p>
+  </div>
+
+  <div class="surface">
+    <h3>Risks</h3>
+    <p class="ref"><strong>Reference:</strong> a European telecoms transformation, where scope and change signals were tracked continuously against workshop context and surfaced to the steering committee before they became invoices.</p>
+    <p>Scope movement, decision drift, and early warnings — tracked against the workshop record you already have. You see a change coming while there is still time to price it, not after it lands in the invoice.</p>
+  </div>
+
+  <div class="surface">
+    <h3>Changes</h3>
+    <p class="ref"><strong>Reference:</strong> configuration work driven by plain-language questions against the project's own ALM record, with every change reviewed and approved by a human on the client team before it reached S/4HANA.</p>
+    <p>Ask the system a plain-English question about your SAP project. It drafts the change, shows you exactly what it will do, and only pushes to S/4HANA after your team approves it. No push without a signature.</p>
+  </div>
+
+  <div class="surface">
+    <h3>Tests</h3>
+    <p class="ref"><strong>Reference:</strong> test scenarios and evidence generated straight from the same requirements record the specs were drafted from, aligned to SAP Activate, kept alongside the deliverables in the client repository.</p>
+    <p>Test scenarios written from the same requirements the specs were drafted from. Scripts generated, runs scheduled, evidence kept next to the deliverables. When audit asks what you tested, the answer is in one place.</p>
+  </div>
+
+  <h2>How the team is built</h2>
+  <p>Every consultant on the team runs their own twin. The twin does the drafting, the tracking, the querying, and the test-writing on the client's side of the wall — using the client's own tools and the client's own data. Nothing crosses back to us.</p>
+  <p>The twins coordinate through protocol standards, not through a shared platform we own. The team lead sits at the top of the triangles and keeps the client's programme moving as one thing, not four.</p>
+  <p>When we finish, the twins go home with the client. The reasoning stays where the work was done.</p>
+
+  <div class="callout">
+    <p style="margin:0"><strong>The point.</strong> Your project's context reasoning is a trade secret. It is your workshops, your decisions, your language, your people. It should never live on a vendor's platform. With this model, it does not.</p>
+  </div>
+
+  <h2>Compared to a packaged AI assistant</h2>
+  <p>We compare to Luzid because a management consulting group we work with brought it to us, and it is the cleanest example of the packaged category. The comparison is not about who has more features. It is about where the reasoning ends up.</p>
+
+  <div class="compare" role="table" aria-label="Universal DI PMO Model compared with Luzid">
+    <div class="head">
+      <div>Universal DI Framework PMO Model</div>
+      <div><img src="luzid-wordmark.svg" alt="Luzid" /> — packaged AI assistant</div>
+    </div>
+
+    <div class="rowlabel">Where the work lives</div>
+    <div class="row">
+      <div>In your own private repository, on your own systems, from day one.</div>
+      <div>On Luzid's platform, behind a Luzid login.</div>
+    </div>
+
+    <div class="rowlabel">Who owns the reasoning when the engagement ends</div>
+    <div class="row">
+      <div>You do. Every context artifact is a trade secret you already own.</div>
+      <div>Luzid.</div>
+    </div>
+
+    <div class="rowlabel">How the team is organised</div>
+    <div class="row">
+      <div>Every consultant runs their own twin. Twins produce reasoning on your surface, coordinated through protocol standards. A team lead keeps the programme moving as one thing.</div>
+      <div>One central agent (David) on a shared vendor platform, operated by their implementation team.</div>
+    </div>
+
+    <div class="rowlabel">Deliverables — documents, risks, changes, tests</div>
+    <div class="row">
+      <div>Drafted in your environment, versioned on your systems, reviewed by your team, kept in your repository.</div>
+      <div>Drafted on Luzid's platform, exported to your tools, retained by Luzid.</div>
+    </div>
+
+    <div class="rowlabel">Protection of your trade secrets</div>
+    <div class="row">
+      <div>Your data never leaves your boundary. Reasoning happens on your side of the wall.</div>
+      <div>Your data crosses into Luzid to be reasoned on.</div>
+    </div>
+
+    <div class="rowlabel">What is behind the outputs</div>
+    <div class="row">
+      <div>A public decision-intelligence framework with a 96-source evidence register. Your team can read it before you sign.</div>
+      <div>A vendor marketing site.</div>
+    </div>
+  </div>
+
+  <p>Same four things on the page. Different thing in your building six months later.</p>
+
+  <h2>The framework behind the model</h2>
+  <p>The PMO model is one delivery pattern of a broader decision-intelligence framework we publish openly, with primary sources cited throughout. If your team wants to read the argument before we talk, start there.</p>
+  <ul>
+    <li><a href="https://eveglyphdesign.github.io/decision-intelligence-framework/">Decision Intelligence Framework — peer-review draft (v1.2)</a> — the paper behind the model.</li>
+    <li><a href="https://eveglyphdesign.github.io/eve-glyph-boot-contract/">EVEglyph Executive Boot Contract</a> — the operating canon behind the delivery.</li>
+    <li><a href="https://github.com/EVEglyphDesign/eve-liliantwin-pmo">Source repository</a> — this page, in the open.</li>
+  </ul>
+
+  <footer>
+    EVEglyphDesign · Universal DI Framework PMO Model · EgD-KEY-2026-07
+    <span class="mark">Pour le bien-être du peuple</span>
+  </footer>
+</div>
+
+</body>
+</html>
