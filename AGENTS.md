@@ -19,6 +19,8 @@ Mandatory commercial frame: **delivery accelerator plus control point protecting
 
 For the Sashi logistics pitch, speak to his Path from Vision to Value. Do not imply Sashi owns the logistics company or attribute unverified results from his presentation to Vodafone.
 
+**Sashi is the SI, not the end customer.** He decides the DI PMO sovereignty/hosting/repository governance model. Do not preselect end-customer control from generic whitepaper wording. Customer information rights, access, custody and handover are agreed contractually. Pitch acceleration of his SI delivery and evidence-backed protection of his commercial position.
+
 The private working case record and current deck are in the Universal DI PMO Project file repository:
 `di-pmo-pitch/CASE-RECORD.md`, `di-pmo-pitch/v3/`, and `START-HERE.md`.
 Do not publish private client/commercial evidence into this public repository. If access to those files is missing, report that precise access gap; do not invent numbers or substitute a résumé.
