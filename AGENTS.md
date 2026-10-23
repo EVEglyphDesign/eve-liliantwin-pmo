@@ -9,7 +9,7 @@ Read canonical boot-contract `registry/NARROWING.md` in full, then `README.md`, 
 
 Run `python scripts/preflight.py --boot-repo <boot-contract-checkout> --project-files <Project-files-checkout>`. Missing sources or altered templates block work. Read the verified inputs; checksums do not prove comprehension.
 
-Read `di-pmo-pitch/RELEASE-STATUS.json`. **V3 is rejected.** Do not call it approved or generate another deck while the request is harness repair. Before recipient-ready release run the same command with `--release`. It checks exact bytes, recorded visual/source review and an operator approval reference. Never record approval on the operator's behalf.
+Read `di-pmo-pitch/RELEASE-STATUS.json`. **V3 is rejected; v4 is a review candidate created after explicit authorisation to revise V12.** Review drafts may be shared when requested; do not call them operator-approved. Before recipient-ready release run the same command with `--release`. It checks exact bytes, recorded visual/source review and an operator approval reference. Never record approval on the operator's behalf.
 
 This repository command cannot force a chat platform or agent to invoke it or prevent bypass through an attachment tool. It cannot prove visual quality or guarantee compliance. Report that limitation honestly.
 
@@ -34,7 +34,7 @@ For the Sashi logistics pitch, speak to his Path from Vision to Value. Do not im
 The operator's Epiq delivery is the reference. Sashi applies that DI PMO model as SI under Lilian's governance and leadership. Keep these responsibilities distinct: the model stays central without erasing Lilian's leadership or attributing the operator's historical execution to her.
 
 The private working case record and current deck are in the Universal DI PMO Project file repository:
-`di-pmo-pitch/CASE-RECORD.md`, `di-pmo-pitch/v3/`, and `START-HERE.md`.
+`di-pmo-pitch/CASE-RECORD.md`, `di-pmo-pitch/v4/`, and `START-HERE.md`.
 The authoritative content sources are now the unchanged uploaded DOCX and PPTX under `di-pmo-pitch/sources/v12/`. Read both in full plus `di-pmo-pitch/V12-COVERAGE-AUDIT.md` before revising. The 15-slide source and 11-domain guide must not be replaced by a short-pilot summary. Current operator instructions still govern the SI audience, sovereignty, leadership and Emerson Rush design.
 Do not publish private client/commercial evidence into this public repository. If access to those files is missing, report that precise access gap; do not invent numbers or substitute a résumé.
 
