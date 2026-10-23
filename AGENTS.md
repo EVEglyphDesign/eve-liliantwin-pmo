@@ -3,6 +3,16 @@
 Read this before drafting, generating, searching email, or choosing a template.
 This file and the referenced assets are the starting context, not optional background.
 
+## Mandatory boot and release gate
+
+Read canonical boot-contract `registry/NARROWING.md` in full, then `README.md`, `registry/ACTIVE.md` and relevant observations. Loading the skill alone is insufficient.
+
+Run `python scripts/preflight.py --boot-repo <boot-contract-checkout> --project-files <Project-files-checkout>`. Missing sources or altered templates block work. Read the verified inputs; checksums do not prove comprehension.
+
+Read `di-pmo-pitch/RELEASE-STATUS.json`. **V3 is rejected.** Do not call it approved or generate another deck while the request is harness repair. Before recipient-ready release run the same command with `--release`. It checks exact bytes, recorded visual/source review and an operator approval reference. Never record approval on the operator's behalf.
+
+This repository command cannot force a chat platform or agent to invoke it or prevent bypass through an attachment tool. It cannot prove visual quality or guarantee compliance. Report that limitation honestly.
+
 ## Audience and template routing
 
 - **Lilian / Emerson Rush DI PMO pitch materials:** use the checked-in native PowerPoint at `templates/Emerson_Rush_DI_PMO_reference.pptx`. Reuse its slide size, navy/red/white palette, Calibri/Calibri Light fonts, masthead and footer. Do not substitute the EVEglyphDesign cream/orange public-site design.
