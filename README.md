@@ -1,5 +1,9 @@
 # eve-liliantwin-pmo
 
+## Agent entry point
+
+Read [AGENTS.md](AGENTS.md) before work. **Lilian's DI PMO pitch materials use the [Emerson Rush PowerPoint reference](templates/Emerson_Rush_DI_PMO_reference.pptx), not this public site's cream/orange design.** Reuse the [approved four-circle diagram](templates/DI_PMO_Decision_Roles_Map_approved.pptx). The DI PMO model, not a representative's résumé, is the offering.
+
 Public surface for the **Universal DI Framework PMO Model**.
 
 > The PMO that runs inside your systems.
