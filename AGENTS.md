@@ -15,10 +15,12 @@ The DI PMO model is central. Lilian represents the offering; do not substitute h
 
 Lead with implementation time, cost and business value. Traceability is enabling evidence, not the primary proposition. Retain Petra's distinction between administrative AI automation and decision intelligence: evidence, alternatives, trade-offs, readiness, human authority and benefits after go-live.
 
+Mandatory commercial frame: **delivery accelerator plus control point protecting the delivery partner through an evidence register**. Preserve the whitepaper's company-owned shared programme record, reusable delivery artifacts, human approval, scope/change history, commitments and acceptance evidence. Vendor protection is evidence-backed accountability, not legal immunity. Pilot a bounded SAP process work package, not the vague phrase “one migration decision.” Preserve the full service-organisation scope in the Epiq case; named applications are examples, not an exhaustive limit.
+
 For the Sashi logistics pitch, speak to his Path from Vision to Value. Do not imply Sashi owns the logistics company or attribute unverified results from his presentation to Vodafone.
 
 The private working case record and current deck are in the Universal DI PMO Project file repository:
-`di-pmo-pitch/CASE-RECORD.md`, `di-pmo-pitch/v2/`, and `START-HERE.md`.
+`di-pmo-pitch/CASE-RECORD.md`, `di-pmo-pitch/v3/`, and `START-HERE.md`.
 Do not publish private client/commercial evidence into this public repository. If access to those files is missing, report that precise access gap; do not invent numbers or substitute a résumé.
 
 ## Approved diagram
