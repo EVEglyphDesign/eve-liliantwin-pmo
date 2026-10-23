@@ -35,6 +35,7 @@ The operator's Epiq delivery is the reference. Sashi applies that DI PMO model a
 
 The private working case record and current deck are in the Universal DI PMO Project file repository:
 `di-pmo-pitch/CASE-RECORD.md`, `di-pmo-pitch/v3/`, and `START-HERE.md`.
+The authoritative content sources are now the unchanged uploaded DOCX and PPTX under `di-pmo-pitch/sources/v12/`. Read both in full plus `di-pmo-pitch/V12-COVERAGE-AUDIT.md` before revising. The 15-slide source and 11-domain guide must not be replaced by a short-pilot summary. Current operator instructions still govern the SI audience, sovereignty, leadership and Emerson Rush design.
 Do not publish private client/commercial evidence into this public repository. If access to those files is missing, report that precise access gap; do not invent numbers or substitute a résumé.
 
 ## Approved diagram

@@ -11,6 +11,10 @@ def validate(boot, project, release=False):
     errors, hashes = [], {}
     paths = [boot/x for x in ("README.md","registry/NARROWING.md","registry/ACTIVE.md","registry/OBSERVATIONS.md")]
     paths += [ROOT/"AGENTS.md"] + [project/x for x in ("START-HERE.md","AGENTS.md","di-pmo-pitch/CASE-RECORD.md","di-pmo-pitch/RELEASE-STATUS.json")]
+    paths += [project/"di-pmo-pitch/sources/v12"/name for name in (
+        "Decision-Intelligence-PMO-Blueprint-Executive-Value-Guide-V12.docx",
+        "The-Value-of-a-Decision-Intelligence-PMO-V12.pptx")]
+    paths += [project/"di-pmo-pitch/V12-COVERAGE-AUDIT.md"]
     for path in paths:
         if not path.is_file() or not path.stat().st_size: errors.append(f"Required source unavailable: {path}")
         else: hashes[str(path)] = sha(path)
